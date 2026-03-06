@@ -1,0 +1,27 @@
+{
+  "name": "securecoding-combined",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsx src/stateless.ts",
+    "http": "tsx src/stateless.ts",
+    "stateless": "tsx src/stateless.ts",
+    "stateful": "tsx src/stateful.ts",
+    "stdio": "tsx src/stdio.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "type": "module",
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.5.2",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "@huggingface/transformers": "^3.7.4",
+    "@modelcontextprotocol/sdk": "^1.18.1",
+    "express": "^5.1.0"
+  }
+}
