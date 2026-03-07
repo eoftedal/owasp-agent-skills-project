@@ -1,5 +1,7 @@
 # OWASP Agent Skills
 
+**Goal:** Help AI Coding Agents to write more secure code by influencing them at the planning stage.
+
 Security guidance for AI coding agents, grounded in [OWASP ASVS 5.0](https://owasp.org/www-project-application-security-verification-standard/). Two delivery options are provided — use whichever fits your setup:
 
 |                           | Skill                              | MCP server                  |
