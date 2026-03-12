@@ -11,6 +11,15 @@
         ]
       },
       {
+        "matcher": "TodoWrite",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo 'REMINDER: When creating tasks, consider whether any involve security-sensitive operations. If so, add an explicit task to apply the security-guidance skill before implementing that work.'"
+          }
+        ]
+      },
+      {
         "matcher": "Edit|Write|NotebookEdit",
         "hooks": [
           {
