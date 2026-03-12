@@ -22,8 +22,6 @@ Security is a first-class requirement. Before completing any plan or producing a
 
 If no section in the index matches a task that involves security-sensitive operations, or if guidance is conflicting or unclear, **stop and flag the gap** before proceeding. Do not guess or paraphrase guidance — escalate instead.
 
-If the index below is empty, report that the reference index failed to load and list which ASVS chapters are likely relevant based on the task description.
-
 ## Reference Index
 
 ### V1.1 Encoding and Sanitization Architecture
@@ -44,11 +42,10 @@ Output encoding and escaping requirements to prevent injection into interpreters
 
 When to use:
 
-- building database queries (SQL, NoSQL, HQL, Cypher, XPath)
+- building database queries (SQL, NoSQL, HQL, Cypher, XPath, LDAP)
 - constructing OS commands or shell scripts with dynamic data
 - building URLs or redirects with user-supplied values
 - rendering user input inside HTML, CSS, or JavaScript
-- building LDAP queries
 - processing LaTeX input
 - evaluating regular expressions containing user-supplied patterns
 - generating CSV, XLS, or spreadsheet exports with user data
@@ -92,6 +89,474 @@ When to use:
 - processing binary or text-based serialization formats (XML, JSON, YAML, MessagePack)
 
 See `references/ASVS/V1.5.md` for detailed guidance.
+
+### V2.1 Validation and Business Logic Documentation
+
+Requirements for documenting expected inputs and business logic rules.
+
+When to use:
+
+- documenting what inputs an application accepts and their expected formats
+- defining business rules and workflow constraints for a feature
+
+See `references/ASVS/V2.1.md` for detailed guidance.
+
+### V2.2 Input Validation
+
+Requirements for validating input data at application boundaries.
+
+When to use:
+
+- processing any user-supplied input at an application boundary
+- validating that inputs match expected types, formats, lengths, or value ranges
+- checking data received from external systems or APIs
+
+See `references/ASVS/V2.2.md` for detailed guidance.
+
+### V2.3 Business Logic Security
+
+Requirements for securing business workflows against manipulation, skipping steps, or race conditions.
+
+When to use:
+
+- implementing multi-step workflows or transaction sequences
+- enforcing ordering or timing constraints between operations
+- handling financial transactions, inventory updates, or state machines
+- implementing features where users should not be able to skip or replay steps
+
+See `references/ASVS/V2.3.md` for detailed guidance.
+
+### V2.4 Anti-automation
+
+Requirements for protecting against automated abuse, scraping, and excessive requests.
+
+When to use:
+
+- adding rate limiting to endpoints or operations
+- protecting forms or APIs from automated abuse or credential stuffing
+- implementing CAPTCHA or bot detection on public-facing endpoints
+- limiting how many times an operation can be performed per user or IP
+
+See `references/ASVS/V2.4.md` for detailed guidance.
+
+### V3.1 Web Frontend Security Documentation
+
+Requirements for documenting frontend security decisions and browser security configurations.
+
+When to use:
+
+- documenting security decisions for a web frontend application
+- defining which content security policies and browser protections will be used
+
+See `references/ASVS/V3.1.md` for detailed guidance.
+
+### V3.2 Unintended Content Interpretation
+
+Requirements to prevent browsers from misinterpreting response content types.
+
+When to use:
+
+- serving user-uploaded files or content from the application
+- setting Content-Type headers for HTTP responses
+- rendering HTML pages that include user-controlled content
+- preventing browsers from MIME-sniffing response types
+
+See `references/ASVS/V3.2.md` for detailed guidance.
+
+### V3.3 Cookie Setup
+
+Requirements for securely configuring cookie attributes.
+
+When to use:
+
+- setting cookies in HTTP responses (session, preference, or tracking cookies)
+- configuring cookie attributes (HttpOnly, Secure, SameSite, domain, path)
+
+See `references/ASVS/V3.3.md` for detailed guidance.
+
+### V3.4 Browser Security Mechanism Headers
+
+Requirements for HTTP security headers that instruct browsers to enforce security policies.
+
+When to use:
+
+- setting HTTP security headers on web application responses
+- configuring Content Security Policy (CSP)
+- setting HSTS, X-Frame-Options, Referrer-Policy, or Permissions-Policy headers
+
+See `references/ASVS/V3.4.md` for detailed guidance.
+
+### V3.5 Browser Origin Separation
+
+Requirements for enforcing origin boundaries and preventing cross-origin attacks in browsers.
+
+When to use:
+
+- configuring Cross-Origin Resource Sharing (CORS) policies
+- building applications that interact across multiple origins or subdomains
+- preventing cross-site request forgery (CSRF)
+- using postMessage or cross-frame communication
+
+See `references/ASVS/V3.5.md` for detailed guidance.
+
+### V3.6 External Resource Integrity
+
+Requirements for verifying the integrity of externally loaded resources.
+
+When to use:
+
+- loading third-party scripts, stylesheets, or fonts from external CDNs
+- using subresource integrity (SRI) for external assets
+- embedding external resources in HTML pages
+
+See `references/ASVS/V3.6.md` for detailed guidance.
+
+### V3.7 Other Browser Security Considerations
+
+Miscellaneous browser security requirements not covered by other V3 sections.
+
+When to use:
+
+- building browser-based applications with complex client-side logic
+- handling sensitive data in browser storage (localStorage, sessionStorage, IndexedDB)
+- using service workers or browser caching mechanisms
+
+See `references/ASVS/V3.7.md` for detailed guidance.
+
+### V4.1 Generic Web Service Security
+
+General security requirements applicable to all HTTP-based web services.
+
+When to use:
+
+- building or consuming HTTP-based APIs or web services
+- implementing REST endpoints
+- designing the request/response lifecycle of a web service
+
+See `references/ASVS/V4.1.md` for detailed guidance.
+
+### V4.2 HTTP Message Structure Validation
+
+Requirements for validating the structure and fields of HTTP messages.
+
+When to use:
+
+- parsing HTTP request headers, query parameters, or body content in an API
+- validating Content-Type, Accept, or other HTTP header fields
+- handling HTTP request routing or middleware in a web service
+
+See `references/ASVS/V4.2.md` for detailed guidance.
+
+### V4.3 GraphQL
+
+Security requirements specific to GraphQL APIs.
+
+When to use:
+
+- implementing a GraphQL API or schema
+- handling GraphQL queries, mutations, or subscriptions
+- configuring a GraphQL server or gateway
+
+See `references/ASVS/V4.3.md` for detailed guidance.
+
+### V4.4 WebSocket
+
+Security requirements for WebSocket connections and message handling.
+
+When to use:
+
+- implementing WebSocket connections for real-time communication
+- building a WebSocket server or client
+- handling WebSocket upgrade requests and message routing
+
+See `references/ASVS/V4.4.md` for detailed guidance.
+
+### V5.1 File Handling Documentation
+
+Requirements for documenting file handling expectations and security decisions.
+
+When to use:
+
+- documenting file upload or download features
+- defining accepted file types, sizes, and handling behavior for a feature
+
+See `references/ASVS/V5.1.md` for detailed guidance.
+
+### V5.2 File Upload and Content
+
+Requirements for securely accepting and validating user-uploaded files.
+
+When to use:
+
+- implementing file upload functionality
+- accepting files from users via HTTP, form submission, or API
+- validating file type, size, or content before processing
+- handling zip or archive uploads that will be extracted
+
+See `references/ASVS/V5.2.md` for detailed guidance.
+
+### V5.3 File Storage
+
+Requirements for securely storing files and preventing path traversal or server-side execution.
+
+When to use:
+
+- storing uploaded or generated files on disk or object storage
+- constructing file paths for stored files
+- serving stored files via HTTP
+- handling file paths provided by users
+
+See `references/ASVS/V5.3.md` for detailed guidance.
+
+### V5.4 File Download
+
+Requirements for securely serving files to users for download.
+
+When to use:
+
+- serving files for download via HTTP responses
+- allowing users to download stored files
+- setting Content-Disposition or Content-Type for file downloads
+
+See `references/ASVS/V5.4.md` for detailed guidance.
+
+### V6.1 Authentication Documentation
+
+Requirements for documenting authentication decisions and mechanisms.
+
+When to use:
+
+- documenting authentication mechanisms for an application
+- defining which authentication methods are supported
+
+See `references/ASVS/V6.1.md` for detailed guidance.
+
+### V6.2 Password Security
+
+Requirements for securely handling user passwords, including storage, policies, and breach detection.
+
+When to use:
+
+- implementing password-based login
+- storing or verifying user passwords
+- implementing password creation, reset, or change flows
+- enforcing password policies or checking against breached password lists
+
+See `references/ASVS/V6.2.md` for detailed guidance.
+
+### V6.3 General Authentication Security
+
+General security requirements for all authentication mechanisms.
+
+When to use:
+
+- implementing any authentication mechanism (login, API key, certificate)
+- building login flows, authentication endpoints, or credential verification
+- protecting authentication against brute force, enumeration, or timing attacks
+
+See `references/ASVS/V6.3.md` for detailed guidance.
+
+### V6.4 Authentication Factor Lifecycle and Recovery
+
+Requirements for managing authentication factor enrollment, recovery, and revocation.
+
+When to use:
+
+- implementing account recovery or password reset flows
+- managing enrollment or removal of authentication factors
+- handling forgotten passwords or locked accounts
+
+See `references/ASVS/V6.4.md` for detailed guidance.
+
+### V6.5 General Multi-factor Authentication Requirements
+
+General requirements for implementing multi-factor authentication.
+
+When to use:
+
+- adding multi-factor authentication (MFA) to a login flow
+- implementing TOTP, hardware keys, or other second factors
+- enforcing MFA for privileged or sensitive operations
+
+See `references/ASVS/V6.5.md` for detailed guidance.
+
+### V6.6 Out-of-Band Authentication Mechanisms
+
+Requirements for authentication mechanisms that use a separate out-of-band channel.
+
+When to use:
+
+- implementing SMS, email, or push notification-based authentication
+- using out-of-band channels (phone call, email link) for login or verification
+
+See `references/ASVS/V6.6.md` for detailed guidance.
+
+### V6.7 Cryptographic Authentication Mechanism
+
+Requirements for cryptographic authentication mechanisms such as WebAuthn, passkeys, and client certificates.
+
+When to use:
+
+- implementing certificate-based authentication
+- supporting hardware security keys (FIDO2, WebAuthn, passkeys)
+- using cryptographic proof-of-possession for authentication
+
+See `references/ASVS/V6.7.md` for detailed guidance.
+
+### V6.8 Authentication with an Identity Provider
+
+Requirements for authenticating users via an external identity provider using federated protocols.
+
+When to use:
+
+- integrating with an external identity provider (IdP) for authentication
+- implementing "Sign in with Google/Apple/GitHub" or similar social login
+- federating authentication via SAML, OIDC, or similar protocols
+
+See `references/ASVS/V6.8.md` for detailed guidance.
+
+### V7.1 Session Management Documentation
+
+Requirements for documenting session management decisions.
+
+When to use:
+
+- documenting session management design for an application
+- defining session token types and storage mechanisms
+
+See `references/ASVS/V7.1.md` for detailed guidance.
+
+### V7.2 Fundamental Session Management Security
+
+Foundational requirements for creating and issuing secure session tokens.
+
+When to use:
+
+- issuing session tokens or cookies after successful authentication
+- generating session identifiers
+- binding sessions to users after login
+
+See `references/ASVS/V7.2.md` for detailed guidance.
+
+### V7.3 Session Timeout
+
+Requirements for limiting session duration and implementing idle or absolute timeouts.
+
+When to use:
+
+- implementing session expiry or idle timeout
+- configuring absolute or sliding session lifetimes
+- managing session validity periods
+
+See `references/ASVS/V7.3.md` for detailed guidance.
+
+### V7.4 Session Termination
+
+Requirements for securely terminating sessions on logout or credential change.
+
+When to use:
+
+- implementing logout functionality
+- invalidating sessions server-side on logout
+- terminating all sessions when a user changes credentials
+
+See `references/ASVS/V7.4.md` for detailed guidance.
+
+### V7.5 Defenses Against Session Abuse
+
+Requirements for detecting and preventing session theft, fixation, and hijacking.
+
+When to use:
+
+- protecting sessions against fixation, hijacking, or replay attacks
+- implementing session binding to device or IP
+- detecting concurrent sessions from multiple locations
+
+See `references/ASVS/V7.5.md` for detailed guidance.
+
+### V7.6 Federated Re-authentication
+
+Requirements for session management in federated identity and SSO scenarios.
+
+When to use:
+
+- managing sessions in a federated SSO environment
+- handling re-authentication requests from an identity provider
+- implementing single logout (SLO) across federated services
+
+See `references/ASVS/V7.6.md` for detailed guidance.
+
+### V8.1 Authorization Documentation
+
+Requirements for documenting authorization rules and decision factors.
+
+When to use:
+
+- documenting access control rules and permission models
+- defining which roles or attributes govern access to resources
+
+See `references/ASVS/V8.1.md` for detailed guidance.
+
+### V8.2 General Authorization Design
+
+Requirements for function-level, data-level, and field-level access control enforcement.
+
+When to use:
+
+- always use this when making changes to authentication/login, as authentication and authorization MUST be considered together
+- controlling which users can call which functions or endpoints
+- restricting access to specific data records by user identity
+- implementing object-level or field-level access control
+
+See `references/ASVS/V8.2.md` for detailed guidance.
+
+### V8.3 Operation Level Authorization
+
+Requirements for enforcing authorization at the correct service tier and handling permission changes promptly.
+
+When to use:
+
+- enforcing authorization in server-side logic (not just client-side)
+- applying permission changes immediately when roles are updated
+- designing authorization in multi-service or microservice architectures
+
+See `references/ASVS/V8.3.md` for detailed guidance.
+
+### V8.4 Other Authorization Considerations
+
+Additional authorization requirements for multi-tenant systems and administrative interfaces.
+
+When to use:
+
+- building multi-tenant applications with tenant isolation
+- implementing administrative or privileged interfaces
+- applying contextual access controls (time, location, device) to authorization
+
+See `references/ASVS/V8.4.md` for detailed guidance.
+
+### V9.1 Token Source and Integrity
+
+Requirements for verifying the source, signature, and integrity of self-contained tokens.
+
+When to use:
+
+- validating JWTs or other self-contained tokens received from clients or services
+- verifying the signature or integrity of tokens before trusting their claims
+- configuring which signing algorithms are accepted for tokens
+
+See `references/ASVS/V9.1.md` for detailed guidance.
+
+### V9.2 Token Content
+
+Requirements for the content, claims, and lifetime of self-contained tokens.
+
+When to use:
+
+- defining the claims or payload stored inside a JWT or similar token
+- setting expiry, audience, issuer, or other standard claims on tokens
+- preventing sensitive data from being stored in token payloads
+
+See `references/ASVS/V9.2.md` for detailed guidance.
 
 ### V10.1 Generic OAuth and OIDC Security
 
@@ -526,472 +991,3 @@ When to use:
 - securing the signaling channel for WebRTC session establishment
 
 See `references/ASVS/V17.3.md` for detailed guidance.
-
-### V2.1 Validation and Business Logic Documentation
-
-Requirements for documenting expected inputs and business logic rules.
-
-When to use:
-
-- documenting what inputs an application accepts and their expected formats
-- defining business rules and workflow constraints for a feature
-
-See `references/ASVS/V2.1.md` for detailed guidance.
-
-### V2.2 Input Validation
-
-Requirements for validating input data at application boundaries.
-
-When to use:
-
-- processing any user-supplied input at an application boundary
-- validating that inputs match expected types, formats, lengths, or value ranges
-- checking data received from external systems or APIs
-
-See `references/ASVS/V2.2.md` for detailed guidance.
-
-### V2.3 Business Logic Security
-
-Requirements for securing business workflows against manipulation, skipping steps, or race conditions.
-
-When to use:
-
-- implementing multi-step workflows or transaction sequences
-- enforcing ordering or timing constraints between operations
-- handling financial transactions, inventory updates, or state machines
-- implementing features where users should not be able to skip or replay steps
-
-See `references/ASVS/V2.3.md` for detailed guidance.
-
-### V2.4 Anti-automation
-
-Requirements for protecting against automated abuse, scraping, and excessive requests.
-
-When to use:
-
-- adding rate limiting to endpoints or operations
-- protecting forms or APIs from automated abuse or credential stuffing
-- implementing CAPTCHA or bot detection on public-facing endpoints
-- limiting how many times an operation can be performed per user or IP
-
-See `references/ASVS/V2.4.md` for detailed guidance.
-
-### V3.1 Web Frontend Security Documentation
-
-Requirements for documenting frontend security decisions and browser security configurations.
-
-When to use:
-
-- documenting security decisions for a web frontend application
-- defining which content security policies and browser protections will be used
-
-See `references/ASVS/V3.1.md` for detailed guidance.
-
-### V3.2 Unintended Content Interpretation
-
-Requirements to prevent browsers from misinterpreting response content types.
-
-When to use:
-
-- serving user-uploaded files or content from the application
-- setting Content-Type headers for HTTP responses
-- rendering HTML pages that include user-controlled content
-- preventing browsers from MIME-sniffing response types
-
-See `references/ASVS/V3.2.md` for detailed guidance.
-
-### V3.3 Cookie Setup
-
-Requirements for securely configuring cookie attributes.
-
-When to use:
-
-- setting cookies in HTTP responses (session, preference, or tracking cookies)
-- configuring cookie attributes (HttpOnly, Secure, SameSite, domain, path)
-
-See `references/ASVS/V3.3.md` for detailed guidance.
-
-### V3.4 Browser Security Mechanism Headers
-
-Requirements for HTTP security headers that instruct browsers to enforce security policies.
-
-When to use:
-
-- setting HTTP security headers on web application responses
-- configuring Content Security Policy (CSP)
-- setting HSTS, X-Frame-Options, Referrer-Policy, or Permissions-Policy headers
-
-See `references/ASVS/V3.4.md` for detailed guidance.
-
-### V3.5 Browser Origin Separation
-
-Requirements for enforcing origin boundaries and preventing cross-origin attacks in browsers.
-
-When to use:
-
-- configuring Cross-Origin Resource Sharing (CORS) policies
-- building applications that interact across multiple origins or subdomains
-- preventing cross-site request forgery (CSRF)
-- using postMessage or cross-frame communication
-
-See `references/ASVS/V3.5.md` for detailed guidance.
-
-### V3.6 External Resource Integrity
-
-Requirements for verifying the integrity of externally loaded resources.
-
-When to use:
-
-- loading third-party scripts, stylesheets, or fonts from external CDNs
-- using subresource integrity (SRI) for external assets
-- embedding external resources in HTML pages
-
-See `references/ASVS/V3.6.md` for detailed guidance.
-
-### V3.7 Other Browser Security Considerations
-
-Miscellaneous browser security requirements not covered by other V3 sections.
-
-When to use:
-
-- building browser-based applications with complex client-side logic
-- handling sensitive data in browser storage (localStorage, sessionStorage, IndexedDB)
-- using service workers or browser caching mechanisms
-
-See `references/ASVS/V3.7.md` for detailed guidance.
-
-### V4.1 Generic Web Service Security
-
-General security requirements applicable to all HTTP-based web services.
-
-When to use:
-
-- building or consuming HTTP-based APIs or web services
-- implementing REST endpoints
-- designing the request/response lifecycle of a web service
-
-See `references/ASVS/V4.1.md` for detailed guidance.
-
-### V4.2 HTTP Message Structure Validation
-
-Requirements for validating the structure and fields of HTTP messages.
-
-When to use:
-
-- parsing HTTP request headers, query parameters, or body content in an API
-- validating Content-Type, Accept, or other HTTP header fields
-- handling HTTP request routing or middleware in a web service
-
-See `references/ASVS/V4.2.md` for detailed guidance.
-
-### V4.3 GraphQL
-
-Security requirements specific to GraphQL APIs.
-
-When to use:
-
-- implementing a GraphQL API or schema
-- handling GraphQL queries, mutations, or subscriptions
-- configuring a GraphQL server or gateway
-
-See `references/ASVS/V4.3.md` for detailed guidance.
-
-### V4.4 WebSocket
-
-Security requirements for WebSocket connections and message handling.
-
-When to use:
-
-- implementing WebSocket connections for real-time communication
-- building a WebSocket server or client
-- handling WebSocket upgrade requests and message routing
-
-See `references/ASVS/V4.4.md` for detailed guidance.
-
-### V5.1 File Handling Documentation
-
-Requirements for documenting file handling expectations and security decisions.
-
-When to use:
-
-- documenting file upload or download features
-- defining accepted file types, sizes, and handling behavior for a feature
-
-See `references/ASVS/V5.1.md` for detailed guidance.
-
-### V5.2 File Upload and Content
-
-Requirements for securely accepting and validating user-uploaded files.
-
-When to use:
-
-- implementing file upload functionality
-- accepting files from users via HTTP, form submission, or API
-- validating file type, size, or content before processing
-- handling zip or archive uploads that will be extracted
-
-See `references/ASVS/V5.2.md` for detailed guidance.
-
-### V5.3 File Storage
-
-Requirements for securely storing files and preventing path traversal or server-side execution.
-
-When to use:
-
-- storing uploaded or generated files on disk or object storage
-- constructing file paths for stored files
-- serving stored files via HTTP
-- handling file paths provided by users
-
-See `references/ASVS/V5.3.md` for detailed guidance.
-
-### V5.4 File Download
-
-Requirements for securely serving files to users for download.
-
-When to use:
-
-- serving files for download via HTTP responses
-- allowing users to download stored files
-- setting Content-Disposition or Content-Type for file downloads
-
-See `references/ASVS/V5.4.md` for detailed guidance.
-
-### V6.1 Authentication Documentation
-
-Requirements for documenting authentication decisions and mechanisms.
-
-When to use:
-
-- documenting authentication mechanisms for an application
-- defining which authentication methods are supported
-
-See `references/ASVS/V6.1.md` for detailed guidance.
-
-### V6.2 Password Security
-
-Requirements for securely handling user passwords, including storage, policies, and breach detection.
-
-When to use:
-
-- implementing password-based login
-- storing or verifying user passwords
-- implementing password creation, reset, or change flows
-- enforcing password policies or checking against breached password lists
-
-See `references/ASVS/V6.2.md` for detailed guidance.
-
-### V6.3 General Authentication Security
-
-General security requirements for all authentication mechanisms.
-
-When to use:
-
-- implementing any authentication mechanism (login, API key, certificate)
-- building login flows, authentication endpoints, or credential verification
-- protecting authentication against brute force, enumeration, or timing attacks
-
-See `references/ASVS/V6.3.md` for detailed guidance.
-
-### V6.4 Authentication Factor Lifecycle and Recovery
-
-Requirements for managing authentication factor enrollment, recovery, and revocation.
-
-When to use:
-
-- implementing account recovery or password reset flows
-- managing enrollment or removal of authentication factors
-- handling forgotten passwords or locked accounts
-
-See `references/ASVS/V6.4.md` for detailed guidance.
-
-### V6.5 General Multi-factor Authentication Requirements
-
-General requirements for implementing multi-factor authentication.
-
-When to use:
-
-- adding multi-factor authentication (MFA) to a login flow
-- implementing TOTP, hardware keys, or other second factors
-- enforcing MFA for privileged or sensitive operations
-
-See `references/ASVS/V6.5.md` for detailed guidance.
-
-### V6.6 Out-of-Band Authentication Mechanisms
-
-Requirements for authentication mechanisms that use a separate out-of-band channel.
-
-When to use:
-
-- implementing SMS, email, or push notification-based authentication
-- using out-of-band channels (phone call, email link) for login or verification
-
-See `references/ASVS/V6.6.md` for detailed guidance.
-
-### V6.7 Cryptographic Authentication Mechanism
-
-Requirements for cryptographic authentication mechanisms such as WebAuthn, passkeys, and client certificates.
-
-When to use:
-
-- implementing certificate-based authentication
-- supporting hardware security keys (FIDO2, WebAuthn, passkeys)
-- using cryptographic proof-of-possession for authentication
-
-See `references/ASVS/V6.7.md` for detailed guidance.
-
-### V6.8 Authentication with an Identity Provider
-
-Requirements for authenticating users via an external identity provider using federated protocols.
-
-When to use:
-
-- integrating with an external identity provider (IdP) for authentication
-- implementing "Sign in with Google/Apple/GitHub" or similar social login
-- federating authentication via SAML, OIDC, or similar protocols
-
-See `references/ASVS/V6.8.md` for detailed guidance.
-
-### V7.1 Session Management Documentation
-
-Requirements for documenting session management decisions.
-
-When to use:
-
-- documenting session management design for an application
-- defining session token types and storage mechanisms
-
-See `references/ASVS/V7.1.md` for detailed guidance.
-
-### V7.2 Fundamental Session Management Security
-
-Foundational requirements for creating and issuing secure session tokens.
-
-When to use:
-
-- issuing session tokens or cookies after successful authentication
-- generating session identifiers
-- binding sessions to users after login
-
-See `references/ASVS/V7.2.md` for detailed guidance.
-
-### V7.3 Session Timeout
-
-Requirements for limiting session duration and implementing idle or absolute timeouts.
-
-When to use:
-
-- implementing session expiry or idle timeout
-- configuring absolute or sliding session lifetimes
-- managing session validity periods
-
-See `references/ASVS/V7.3.md` for detailed guidance.
-
-### V7.4 Session Termination
-
-Requirements for securely terminating sessions on logout or credential change.
-
-When to use:
-
-- implementing logout functionality
-- invalidating sessions server-side on logout
-- terminating all sessions when a user changes credentials
-
-See `references/ASVS/V7.4.md` for detailed guidance.
-
-### V7.5 Defenses Against Session Abuse
-
-Requirements for detecting and preventing session theft, fixation, and hijacking.
-
-When to use:
-
-- protecting sessions against fixation, hijacking, or replay attacks
-- implementing session binding to device or IP
-- detecting concurrent sessions from multiple locations
-
-See `references/ASVS/V7.5.md` for detailed guidance.
-
-### V7.6 Federated Re-authentication
-
-Requirements for session management in federated identity and SSO scenarios.
-
-When to use:
-
-- managing sessions in a federated SSO environment
-- handling re-authentication requests from an identity provider
-- implementing single logout (SLO) across federated services
-
-See `references/ASVS/V7.6.md` for detailed guidance.
-
-### V8.1 Authorization Documentation
-
-Requirements for documenting authorization rules and decision factors.
-
-When to use:
-
-- documenting access control rules and permission models
-- defining which roles or attributes govern access to resources
-
-See `references/ASVS/V8.1.md` for detailed guidance.
-
-### V8.2 General Authorization Design
-
-Requirements for function-level, data-level, and field-level access control enforcement.
-
-When to use:
-
-- making changes to authentication implementations
-- controlling which users can call which functions or endpoints
-- restricting access to specific data records by user identity
-- implementing object-level or field-level access control
-- preventing insecure direct object reference (IDOR)
-
-See `references/ASVS/V8.2.md` for detailed guidance.
-
-### V8.3 Operation Level Authorization
-
-Requirements for enforcing authorization at the correct service tier and handling permission changes promptly.
-
-When to use:
-
-- enforcing authorization in server-side logic (not just client-side)
-- applying permission changes immediately when roles are updated
-- designing authorization in multi-service or microservice architectures
-
-See `references/ASVS/V8.3.md` for detailed guidance.
-
-### V8.4 Other Authorization Considerations
-
-Additional authorization requirements for multi-tenant systems and administrative interfaces.
-
-When to use:
-
-- building multi-tenant applications with tenant isolation
-- implementing administrative or privileged interfaces
-- applying contextual access controls (time, location, device) to authorization
-
-See `references/ASVS/V8.4.md` for detailed guidance.
-
-### V9.1 Token Source and Integrity
-
-Requirements for verifying the source, signature, and integrity of self-contained tokens.
-
-When to use:
-
-- validating JWTs or other self-contained tokens received from clients or services
-- verifying the signature or integrity of tokens before trusting their claims
-- configuring which signing algorithms are accepted for tokens
-
-See `references/ASVS/V9.1.md` for detailed guidance.
-
-### V9.2 Token Content
-
-Requirements for the content, claims, and lifetime of self-contained tokens.
-
-When to use:
-
-- defining the claims or payload stored inside a JWT or similar token
-- setting expiry, audience, issuer, or other standard claims on tokens
-- preventing sensitive data from being stored in token payloads
-
-See `references/ASVS/V9.2.md` for detailed guidance.
