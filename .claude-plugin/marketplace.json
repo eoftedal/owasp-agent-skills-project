@@ -1,0 +1,22 @@
+{
+  "name": "owasp-agent-skills-project",
+  "owner": {
+    "name": "Erlend Oftedal",
+    "email": "erlend.oftedal@owasp.org"
+  },
+  "metadata": {
+    "description": "OWASP-grounded secure coding skills for AI agents — For use during planning and implementation",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "secure-coding-skills",
+      "description": "Security guidance skills that apply OWASP ASVS requirements during code planning and implementation",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/security-guidance"
+      ]
+    }
+  ]
+}
