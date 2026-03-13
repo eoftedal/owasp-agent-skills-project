@@ -1,31 +1,34 @@
 {
-  "PreToolUse": [
-    {
-      "matcher": "EnterPlanMode",
-      "hooks": [
-        {
-          "type": "command",
-          "command": "echo 'REMINDER: Before finalising this plan, apply the security-guidance skill. Identify all security-sensitive operations (input handling, auth, data persistence, crypto, file I/O, network, access control) and include OWASP ASVS requirements for each in the plan.'"
-        }
-      ]
-    },
-    {
-      "matcher": "TodoWrite",
-      "hooks": [
-        {
-          "type": "command",
-          "command": "echo 'REMINDER: When creating tasks, consider whether any involve security-sensitive operations. If so, add an explicit task to apply the security-guidance skill before implementing that work.'"
-        }
-      ]
-    },
-    {
-      "matcher": "Edit|Write|NotebookEdit",
-      "hooks": [
-        {
-          "type": "command",
-          "command": "echo 'REMINDER: Before writing this code, apply the security-guidance skill. Check whether this change touches any security-sensitive operations and ensure the implementation satisfies the relevant OWASP ASVS requirements.'"
-        }
-      ]
-    }
-  ]
+  "description": "Remind the agent to use the security-guidance when planning and coding",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "EnterPlanMode",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo 'REMINDER: Before finalising this plan, apply the security-guidance skill. Identify all security-sensitive operations (input handling, auth, data persistence, crypto, file I/O, network, access control) and include OWASP ASVS requirements for each in the plan.'"
+          }
+        ]
+      },
+      {
+        "matcher": "TodoWrite",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo 'REMINDER: When creating tasks, consider whether any involve security-sensitive operations. If so, add an explicit task to apply the security-guidance skill before implementing that work.'"
+          }
+        ]
+      },
+      {
+        "matcher": "Edit|Write|NotebookEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo 'REMINDER: Before writing this code, apply the security-guidance skill. Check whether this change touches any security-sensitive operations and ensure the implementation satisfies the relevant OWASP ASVS requirements.'"
+          }
+        ]
+      }
+    ]
+  }
 }

@@ -17,7 +17,9 @@
       "skills": [
         "./skills/security-guidance"
       ],
-      "hooks": "./hooks/hooks.json"
+      "hooks": [
+        "./hooks/hooks.json"
+      ]
     }
   ]
 }
