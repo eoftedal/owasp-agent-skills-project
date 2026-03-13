@@ -16,14 +16,34 @@ Security guidance for AI coding agents, grounded in [OWASP ASVS 5.0](https://owa
 
 The skill inlines a compact ASVS index into the agent context. The agent reads the index to identify relevant sections, then reads the full reference files as needed.
 
-### Setup
+### Install as a plugin (recommended)
 
-Copy or symlink the `skills/security-guidance/` directory into your Claude Code skills folder (typically `~/.claude/skills/` or a project-local `.claude/skills/`):
+The easiest way to install is via the Claude Code plugin system. This also installs hooks that automatically remind the agent to apply security guidance when planning, creating tasks, and editing code.
+
+```bash
+# Register the marketplace
+/plugin marketplace add eoftedal/owasp-agent-skills-project
+
+# Install the plugin
+/plugin install secure-coding-skills@owasp-agent-skills-project
+```
+
+To install for a single project only, pass `--scope project`:
+
+```bash
+/plugin install secure-coding-skills@owasp-agent-skills-project --scope project
+```
+
+### Manual setup
+
+Alternatively, copy or symlink the `skills/security-guidance/` directory into your Claude Code skills folder (typically `~/.claude/skills/` or a project-local `.claude/skills/`):
 
 ```bash
 # Project-local
 ln -s /path/to/this/repo/skills/security-guidance .claude/skills/security-guidance
 ```
+
+Note: manual setup does not include the hooks — only the skill itself.
 
 No server, no dependencies — the skill works entirely from files in this repository.
 

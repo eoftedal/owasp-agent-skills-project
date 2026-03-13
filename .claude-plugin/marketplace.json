@@ -16,7 +16,8 @@
       "strict": false,
       "skills": [
         "./skills/security-guidance"
-      ]
+      ],
+      "hooks": "./hooks/hooks.json"
     }
   ]
 }
