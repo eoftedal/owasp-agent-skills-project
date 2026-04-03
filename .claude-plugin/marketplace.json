@@ -12,10 +12,10 @@
     {
       "name": "secure-coding-skills",
       "description": "Security guidance skills that apply OWASP ASVS requirements during code planning and implementation",
-      "source": "./",
+      "source": "./secure-coding-skills",
       "strict": false,
       "skills": [
-        "./skills/security-guidance"
+        "./secure-coding-skills/skills/security-guidance"
       ]
     }
   ]
