@@ -15,7 +15,7 @@
       "source": "./secure-coding-skills",
       "strict": false,
       "skills": [
-        "./secure-coding-skills/skills/security-guidance"
+        "./skills/security-guidance"
       ]
     }
   ]
